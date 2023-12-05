@@ -8,10 +8,11 @@ header {
 	margin: auto;
 }
 
-.home-button {
-	position: fixed;
-	top: 10px;
-	float: inline-start;
+nav {
+	position: sticky;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
 form {
@@ -36,6 +37,11 @@ form > label > .search-input {
 
 .entry-name {
 	text-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+h1.entry-name {
+	font-size: 3em;
+	padding: 0.5em;
 }
 
 h2.entry-name {

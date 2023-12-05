@@ -10,21 +10,22 @@ import { useState } from "react";
 const MonstersPage = ({ setCurrentPage }) => {
 	const [searchTerm, setSearchTerm] = useState("");
 
-	const handleNavHome = () => setCurrentPage("home");
+	// const handleNavHome = () => setCurrentPage("home");
 
 	return (
 		<Container>
 			<Grid>
 				<Grid item>
-					<Button
+					{/* <Button
 						className="home-button"
 						variant="contained"
 						size="large"
 						onClick={handleNavHome}
 					>
 						<HomeIcon />
-					</Button>
-					<Header />
+					</Button> */}
+
+					<Header setCurrentPage={setCurrentPage}/>
 				</Grid>
 				<Grid item>
 					<SearchBar setSearchTerm={setSearchTerm} />
