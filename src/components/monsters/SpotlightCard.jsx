@@ -5,12 +5,12 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Typography from "@mui/material/Typography";
+import { capitalize } from "@mui/material";
 
 export default function SpotlightCard({ details }) {
 	return (
 		<div>
 			<Card
-				sx={{ minWidth: 275 }}
 				style={{
 					display: "flex",
 					flexDirection: "column",
@@ -18,10 +18,12 @@ export default function SpotlightCard({ details }) {
 					margin: "20px",
 					width: "90vw",
 					height: "95vh",
+					overflow: "scroll",
 				}}
 			>
 				{details.image && (
 					<img
+						className="entry-image"
 						src={`https://www.dnd5eapi.co${details.image}`}
 						alt={`${details.name} reference artwork`}
 						style={{
@@ -32,24 +34,40 @@ export default function SpotlightCard({ details }) {
 						}}
 					/>
 				)}
+				<Typography variant="h3" className="entry-name">
+					{details.name}
+				</Typography>
+
 				<CardContent
 					style={{
 						width: "75vw",
-						margin: "15px",
 					}}
 				>
-					<Typography variant="h3">{details.name}</Typography>
-
-					<section>{details.special_abilities.map(ability => {
-						return <><Typography>{ability.desc}</Typography><br></br></>
-					}) }</section>
+					<section>
+						{details.special_abilities.map((ability, index) => {
+							return (
+								<div
+									key={`${details.name}.special_abilities[${index}]`}
+								>
+									<Typography>{ability.desc}</Typography>
+									<br></br>
+								</div>
+							);
+						})}
+					</section>
 
 					<section>
-						<Typography variant="h2">Specs</Typography>
+						<Typography variant="h3" className="entry-name">
+							Specs
+						</Typography>
 
 						<Typography>Size: {details.size}</Typography>
-						<Typography>Type: {details.type}</Typography>
-						<Typography>Alignment: {details.alignment}</Typography>
+						<Typography>
+							Type: {capitalize(details.type)}
+						</Typography>
+						<Typography>
+							Alignment: {capitalize(details.alignment)}
+						</Typography>
 						<Typography>
 							Hit Points: {details.hit_points}
 						</Typography>

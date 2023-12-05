@@ -1,4 +1,4 @@
-import { getMonsterBySearch, getMonsters } from "../utils/api/api.monsters";
+import { getMonsterBySearch, getMonsters } from "../../utils/api/api.monsters";
 import { useEffect, useState } from "react";
 
 import MonsterCard from "./MonsterCard";

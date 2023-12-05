@@ -7,7 +7,8 @@ import Skeleton from "@mui/material/Skeleton";
 import SpotlightCard from "./SpotlightCard";
 import SpotlightSkills from "./SpotlightCard";
 import Typography from "@mui/material/Typography";
-import { getMonsterByIndex } from "../utils/api/api.monsters";
+import { capitalize } from "@mui/material";
+import { getMonsterByIndex } from "../../utils/api/api.monsters";
 
 const MonsterCard = ({ monster }) => {
 	const [details, setDetails] = useState({});
@@ -33,41 +34,28 @@ const MonsterCard = ({ monster }) => {
 			<Skeleton
 				animation="wave"
 				style={{
-					height: "40vh",
-					marginBlock: "10px",
-					width: "auto",
+					height: "30vh",
 				}}
 			/>
 		);
 
 	return (
-		<Card
-			style={{
-				display: "flex",
-				justifyContent: "space-between",
-				alignItems: "center",
-				marginBlock: "10px",
-			}}
-			onClick={handleOpenInfo}
-		>
+		<Card className="entry-card" onClick={handleOpenInfo}>
 			<CardContent>
-				<Typography variant="h2">{monster.name}</Typography>
+				<Typography className="entry-name" variant="h2">
+					{monster.name}
+				</Typography>
 				<p>Size: {details.size}</p>
-				<p>Type: {details.type}</p>
-				<p>Alignment: {details.alignment}</p>
+				<p>Type: {capitalize(details.type)}</p>
+				<p>Alignment: {capitalize(details.alignment)}</p>
 			</CardContent>
 
 			{details.image && (
 				<img
+					className="entry-image"
 					src={`https://www.dnd5eapi.co${details.image}`}
 					alt={`${details.name} reference artwork`}
-					style={{
-						maxHeight: "25vh",
-						maxWidth: "30vw",
-						margin: "25px",
-						objectFit: "contain",
-						borderRadius: "5px"
-					}}
+					
 				/>
 			)}
 
@@ -83,38 +71,6 @@ const MonsterCard = ({ monster }) => {
 			</Backdrop>
 		</Card>
 	);
-
-	// return (
-	// 	<Card
-	// 		sx={{ minWidth: 275 }}
-	// 		style={{
-	// 			display: "flex",
-	// 			alignItems: "center",
-	// 			marginBlock: "10px",
-	// 		}}
-	// 		onClick={handleOpen}
-	// 	>
-	// 		{details.image && (
-	// 			<img
-	// 				src={`https://www.dnd5eapi.co${details.image}`}
-	// 				style={{
-	// 					maxHeight: "25vh",
-	// 					maxWidth: "30vw",
-	// 					aspectRatio: "1",
-	// 					margin: "25px",
-	// 					objectFit: "contain",
-	// 				}}
-	// 			/>
-	// 		)}
-
-	// 		<CardContent>
-	// 			<Typography variant="h4">{monster.name}</Typography>
-	// 			<p>Size: {details.size}</p>
-	// 			<p>Type: {details.type}</p>
-	// 			<p>Alignment: {details.alignment}</p>
-	// 		</CardContent>
-	// 	</Card>
-	// );
 };
 
 export default MonsterCard;

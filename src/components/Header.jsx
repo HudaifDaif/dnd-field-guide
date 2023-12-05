@@ -1,6 +1,6 @@
 const Header = () => {
 	return (
-		<header style={{ textAlign: "center" }}>
+		<header >
 			<h1>D&D Field Guide</h1>
 		</header>
 	);

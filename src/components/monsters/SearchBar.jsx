@@ -16,16 +16,15 @@ const SearchBar = ({ setSearchTerm }) => {
 
 	return (
 		<form
-			style={{ display: "flex", justifyContent: "center" }}
 			onSubmit={handleSubmit}
 		>
-			<label style={{ width: "100%" }}>
+			<label >
 				<TextField
 					id="filled-basic"
+					className="search-input"
 					label="Search a monster..."
 					variant="filled"
 					type="text"
-					style={{ width: "100%" }}
 					onChange={handleChange}
 					value={searchInput}
 				/>

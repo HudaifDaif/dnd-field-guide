@@ -1,0 +1,52 @@
+:root {
+	background-color: rgb(225, 225, 225);
+}
+
+header {
+	text-align: center;
+	text-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+	margin: auto;
+}
+
+.home-button {
+	position: fixed;
+	top: 10px;
+	float: inline-start;
+}
+
+form {
+	display: flex;
+	justify-content: center;
+}
+
+form > label {
+	width: 100%;
+}
+
+form > label > .search-input {
+	width: 100%;
+}
+
+.entry-card {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-block: 15px;
+}
+
+.entry-name {
+	text-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+h2.entry-name {
+	font-size: 2.5em;
+}
+
+.entry-image {
+	max-height: 25vh;
+	max-width: 30vw;
+	margin: 5px;
+	object-fit: contain;
+	border-radius: 5px;
+	box-shadow: 0 3px 15px rgba(0, 0, 0, 0.25);
+}

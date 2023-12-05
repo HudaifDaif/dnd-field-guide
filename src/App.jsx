@@ -1,27 +1,26 @@
-import { Header, MonsterList, SearchBar } from "./components";
+import "./app.css";
 
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
-import { Height } from "@mui/icons-material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import Header from "./components/Header";
+import MonstersPage from "./components/monsters/MonstersPage";
+import { TopicsList } from "./components/topics";
 
 function App() {
-	const [searchTerm, setSearchTerm] = useState("")
-
+	const [currentPage, setCurrentPage] = useState("home");
 	return (
-		<Container>
-			<Grid  >
-				<Grid item >
+		<>
+			{currentPage === "home" && (
+				<>
 					<Header />
-				</Grid>
-				<Grid item >
-					<SearchBar setSearchTerm={setSearchTerm} />
-				</Grid>
-				<Grid item >
-					<MonsterList searchTerm={searchTerm} />
-				</Grid>
-			</Grid>
-		</Container>
+					<TopicsList setCurrentPage={setCurrentPage} />
+				</>
+			)}
+
+			{currentPage === "MonstersPage" && (
+				<MonstersPage setCurrentPage={setCurrentPage} />
+			)}
+		</>
 	);
 }
 
